@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: game-server
+    env: node
+    branch: main
+    repo: https://github.com/Dharshan209/Game-server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
