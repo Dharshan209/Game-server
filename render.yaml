@@ -5,7 +5,7 @@ services:
     branch: main
     repo: https://github.com/Dharshan209/Game-server
     buildCommand: npm install
-    startCommand: node index.js
+    startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
