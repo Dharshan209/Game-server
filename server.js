@@ -4,6 +4,7 @@ const cors = require('cors');
 const{Server} = require('socket.io');
 
 const createRoom = require('./socketHandlers/createRoom');
+const joinRoom = require('./socketHandlers/joinRoom');
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,7 @@ const io = new Server(server,{
 io.on('connection', (socket) => {
     console.log('New user connected:', socket.id);
     createRoom(io,socket);
+    joinRoom(io,socket);   
 });
   
 const PORT = process.env.PORT || 3001;
