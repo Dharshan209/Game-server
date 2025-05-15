@@ -12,5 +12,5 @@ function joinRoom(io, socket) {
     });
   }
 
-  module.exports = createRoom;
+  module.exports = joinRoom;
   
