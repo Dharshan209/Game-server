@@ -1,13 +1,11 @@
 function handleSignalingEvents(socket, io) {
-  socket.on("join room", (roomId) => {
-    socket.join(roomId);
-
+  // Get users in a room without joining
+  socket.on("room:get-users", (roomId) => {
     const room = io.sockets.adapter.rooms.get(roomId);
-    const otherUsers = [...(room || [])].filter(id => id !== socket.id);
-
-    socket.emit("all users", otherUsers);
-
-    socket.to(roomId).emit("player-count", room.size);
+    if (room) {
+      const otherUsers = [...room].filter(id => id !== socket.id);
+      socket.emit("all users", otherUsers);
+    }
   });
 
   socket.on("offer", ({ target, sdp, callerId }) => {
