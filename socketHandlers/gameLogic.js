@@ -1,6 +1,6 @@
 const ROLES = ['King', 'Queen', 'Police', 'Thief', 'Minister'];
 const MAX_PLAYERS = 5;
-const MIN_PLAYERS = 4;
+const MIN_PLAYERS = 3;
 const MAX_ROUNDS = 5;
 
 // Game state for each room
